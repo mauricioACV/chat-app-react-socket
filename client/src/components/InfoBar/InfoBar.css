@@ -1,0 +1,75 @@
+.infoBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #2979FF;
+    border-radius: 4px 4px 0 0;
+    height: 60px;
+    width: 100%;
+    padding: 0px 25px;
+  }
+  
+  .leftInnerContainer {
+    position: relative;
+    width: 33.3%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .usersIcon {
+    width: 25px;
+    cursor: pointer;
+  }
+
+  .userCounter {
+    left: 23px;
+    top: 15px;
+    position: absolute;
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .usersContainer {
+    position: absolute;
+    top: 43px;
+    left: -10px;
+    width: auto;
+    padding: 0px 8px;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid red;
+    background-color:rgb(11, 46, 122);
+    color: #fff;
+    height: 100%;
+  }
+
+  .centerInnerContainer {
+    width: 33.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .rightInnerContainer {
+    display: flex;
+    width: 33.3%;
+    justify-content: flex-end;
+  }
+  
+  .onlineIcon {
+    width: 5px;
+    height: 5px;
+  }

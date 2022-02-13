@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
+
+html,
+body {
+  font-family: "Lexend Deca", sans-serif;
+  padding: 0;
+  margin: 0;
+  background: #1a1a1d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.fw300 {
+  font-weight: 300;
+}
+
+.fs-kalam {
+  font-family: "Kalam", cursive;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
