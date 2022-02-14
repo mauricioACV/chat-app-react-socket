@@ -21,7 +21,7 @@ export default function Cube() {
         <span className="cube-letter" style={{ "--i": 1 }}>
           <img
             className="cube-img"
-            src={require("../../imgs/png/css.png")}
+            src={require("../../imgs/png/react.png")}
             alt=""
           />
         </span>
@@ -35,7 +35,7 @@ export default function Cube() {
         <span className="cube-letter" style={{ "--i": 3 }}>
           <img
             className="cube-img"
-            src={require("../../imgs/png/react.png")}
+            src={require("../../imgs/png/css.png")}
             alt=""
           />
         </span>

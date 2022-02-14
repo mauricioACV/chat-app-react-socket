@@ -8,8 +8,8 @@ export default function Join() {
 
   return (
     <div className="joinContainer">
-      <div className="leftContainer relative">
-        <div className="leftContent">
+      <div className="leftContainer">
+        <div className="leftContent relative">
           <img
             src={require("../../imgs/png/chat-bubble-boom.png")}
             className="boom-bubble absolute"
@@ -18,11 +18,6 @@ export default function Join() {
           <img
             src={require("../../imgs/png/chat-bubble-yes.png")}
             className="yes-bubble absolute"
-            alt=""
-          />
-                    <img
-            src={require("../../imgs/png/chat-bubble-omg.png")}
-            className="omg-bubble absolute"
             alt=""
           />
           <div className="appTitle">
@@ -40,14 +35,12 @@ export default function Join() {
       <div className="rightContainer">
         <div className="joinOuterContainer">
           <div className="joinInnerContainer">
-            <div>
-              <input
-                className="joinInput fs-kalam"
-                type="text"
-                placeholder="¡escribe un nickname!"
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
+            <input
+              className="joinInput fs-kalam"
+              type="text"
+              placeholder="¡escribe un nickname!"
+              onChange={(e) => setName(e.target.value)}
+            />
             <Link
               onClick={(e) => (!name ? e.preventDefault() : null)}
               to={`/welcomeroom?name=${name}`}

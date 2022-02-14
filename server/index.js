@@ -1,6 +1,7 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { addUser, removeUser, getUser, getUsersInRoom } from "./users.js";
+import { addRoom, removeRoom, getRooms } from "./rooms.js";
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
@@ -14,8 +15,26 @@ const PORT = process.env.PORT || 5000;
 io.on("connection", (socket) => {
   console.log("new connection!!");
 
-  socket.on("join", ({ name, room }, callback) => {
-    const userObj = { id: socket.id, name, room };
+  socket.on("newRoom", ({room}) => {
+    const roomObj = { id: socket.id, room };
+    const { error, rooms } = addRoom(roomObj);
+    if (error) return callback(error);
+    socket.emit("roomsList", {
+      rooms
+    });
+    callback();
+  });
+
+  socket.on("getRooms", () => {
+    const rooms = getRooms();
+    console.log(rooms)
+    socket.emit("roomsList", {
+      rooms
+    });
+  });
+
+  socket.on("join", ({ name, room, avatar }, callback) => {
+    const userObj = { id: socket.id, name, room, avatar };
     const { error, user } = addUser(userObj);
     if (error) return callback(error);
     //mensaje para el usuario
@@ -26,7 +45,7 @@ io.on("connection", (socket) => {
     //mensaje para todos los usuarios del canal, meons para el usario que se unió al canal
     socket.broadcast
       .to(user.room)
-      .emit("message", { user: "admin", text: `${user.name}, se ha unido!` });
+      .emit("message", { user: "admin", text: `${user.name}, se ha unidoa al chat!` });
     socket.join(user.room);
 
     //pasando usuarios conectados a una room, para manejar en front
@@ -51,7 +70,7 @@ io.on("connection", (socket) => {
     console.log("user disconnect!!");
     const user = removeUser(socket.id);
     if(user) {
-      io.to(user.room).emit('message', {user:'admin', text: `${user.name} se fue!`});
+      io.to(user.room).emit('message', {user:'admin', text: `${user.name} se ha desconectado...`});
       //actualiza el estado de usuarios conectados en el room
       io.to(user.room).emit("roomData", {
         room: user.room,

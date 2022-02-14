@@ -1,13 +1,13 @@
 const users = [];
 
-export const addUser = ({ id, name, room }) => {
+export const addUser = ({ id, name, room, avatar }) => {
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
   const existingUser = users.find(
     (user) => user.room === room && user.name === name
   );
   if (existingUser) return { error: "nombre de usuario no disponible" };
-  const user = { id, name, room };
+  const user = { id, name, room, avatar };
   users.push(user);
   console.log(users);
   return {user};

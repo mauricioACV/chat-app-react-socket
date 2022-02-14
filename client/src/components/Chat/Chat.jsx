@@ -11,18 +11,22 @@ let socket;
 export default function Chat({ location }) {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
+  const [userAvatar, setuserAvatar] = useState(null);
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState([]);
   const ENDPOINT = "localhost:5000";
 
+  console.log(users);
+
   useEffect(() => {
-    const { name, room } = queryString.parse(location.search);
+    const { name, room, avatar } = queryString.parse(location.search);
     socket = io(ENDPOINT);
     setRoom(room);
     setName(name);
+    setuserAvatar(avatar);
     console.log("emitido", name, room);
-    socket.emit("join", { name, room }, (error) => {
+    socket.emit("join", { name, room, avatar }, (error) => {
       if (error) {
         console.log("error nombre usuario");
       }
@@ -50,12 +54,11 @@ export default function Chat({ location }) {
       socket.emit("sendMessage", message, () => setMessage(""));
     }
   };
-  console.log(message, messages);
 
   return (
     <div className="outerContainer">
       <div className="container">
-        <InfoBar room={room} users={users}/>
+        <InfoBar room={room} users={users} />
         <Messages messages={messages} name={name} />
         <Input
           message={message}

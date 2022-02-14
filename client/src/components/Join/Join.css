@@ -13,29 +13,21 @@
 }
 
 .yes-bubble {
-  bottom: 20%;
-  left: 13%;
+  bottom: 0;
+  right: 0;
   width: 100px;
 }
 
 .boom-bubble {
-  top: 12%;
-  left: 10%;
+  top: -15%;
+  left: 0;
   width: 250px;
 }
 
-.omg-bubble {
-  right: 17%;
-  bottom: 33%;
-  width: 100px;
-  z-index: 0;
-}
-
 .leftContent {
-  z-index: 1;
   width: 70%;
   height: 50%;
-  background-color: transparent;
+  background-color: #2e2e35;
   padding: 30px;
   border-radius: 8px;
   display: flex;
@@ -88,7 +80,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   height: 25%;
-  width: 450px;
+  width: 550px;
   z-index: 1  ;
 }
 
