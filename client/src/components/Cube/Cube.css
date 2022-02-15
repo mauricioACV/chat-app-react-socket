@@ -21,10 +21,13 @@
   0% {
     transform: rotateX(0deg) rotateY(0deg);
   }
-  50% {
+  40% {
     transform: rotateX(0deg) rotateY(360deg);
   }
-  70% {
+  60% {
+    transform: rotateX(-90deg) rotateY(360deg);
+  }
+  80% {
     transform: rotateX(-90deg) rotateY(360deg);
   }
   90% {

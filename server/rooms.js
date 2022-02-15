@@ -1,10 +1,10 @@
 const rooms = ['arcade', 'webdesign', 'coding'];
 
-export const addRoom = ({ id, room }) => {
+export const addRoom = ({ room }) => {
   room = room.trim().toLowerCase();
-  const existingRoom = rooms.find((room) => room.room === room);
+  const existingRoom = rooms.includes(room);
   if (existingRoom) return { error: "La sala ya existe" };
-  rooms.push({ id, room });
+  rooms.push(room);
   console.log(rooms);
   return { rooms };
 };

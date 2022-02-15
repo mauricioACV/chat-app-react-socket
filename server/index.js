@@ -1,7 +1,7 @@
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { addUser, removeUser, getUser, getUsersInRoom } from "./users.js";
-import { addRoom, removeRoom, getRooms } from "./rooms.js";
+import { addUser, removeUser, getUser, getUsers, getUsersInRoom } from "./users.js";
+import { addRoom, getRooms } from "./rooms.js";
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
@@ -16,13 +16,18 @@ io.on("connection", (socket) => {
   console.log("new connection!!");
 
   socket.on("newRoom", ({room}) => {
-    const roomObj = { id: socket.id, room };
-    const { error, rooms } = addRoom(roomObj);
-    if (error) return callback(error);
-    socket.emit("roomsList", {
+    const { error, rooms } = addRoom({ room });
+    if (error) return;
+    socket.broadcast.emit("roomsList", {
       rooms
     });
-    callback();
+  });
+
+  socket.on("getUsers", () => {
+    const users = getUsers();
+    socket.emit("usersList", {
+      users
+    });
   });
 
   socket.on("getRooms", () => {
@@ -40,12 +45,12 @@ io.on("connection", (socket) => {
     //mensaje para el usuario
     socket.emit("message", {
       user: "admin",
-      text: `${user.name}, bienvenido a room ${user.room}`,
+      text: `${user.name}, bienvenid@ a room ${user.room}`,
     });
     //mensaje para todos los usuarios del canal, meons para el usario que se unió al canal
     socket.broadcast
       .to(user.room)
-      .emit("message", { user: "admin", text: `${user.name}, se ha unidoa al chat!` });
+      .emit("message", { user: "admin", text: `${user.name}, se ha unido al chat!` });
     socket.join(user.room);
 
     //pasando usuarios conectados a una room, para manejar en front

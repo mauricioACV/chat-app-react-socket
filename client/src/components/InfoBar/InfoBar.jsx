@@ -21,7 +21,7 @@ export default function InfoBar({ room, users }) {
         </label>
       </div>
       <div className="centerInnerContainer">
-        <h3>{room}</h3>
+        <h3>{room.toUpperCase()}</h3>
       </div>
       <div className="rightInnerContainer">
         <a href="/">

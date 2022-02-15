@@ -20,7 +20,6 @@ export default function WelcomeRoom({ location }) {
     socket = io(ENDPOINT);
     socket.emit("getRooms", () => {});
     socket.on("roomsList", ({ rooms }) => {
-      console.log(rooms);
       setRooms(rooms);
     });
   }, [ENDPOINT]);
@@ -31,42 +30,46 @@ export default function WelcomeRoom({ location }) {
   }, [location]);
 
   return (
-    <div className="welcome-container">
+    <div className="welcome-container relative">
       <div className="welcome-left-container">
-        <div className="titleContainer">
-          <p className="tag-title">&#60;</p>
-          <h1 className="welcome-user-title ml-10 mr-10">
-            ¡Bienvenido {nickname}!
-          </h1>
-          <p className="tag-title">&#62;</p>
-        </div>
-        <h2 className="welcome-user-title">Escoge un avatar</h2>
-        <div className="avatarContainer">
-          {avatars.map((avatar) => (
-            <div
-              className={`avatarOption ${
-                userAvatar === avatar ? "avatarActive" : ""
-              }`}
-              key={avatar}
-            >
-              <img
-                onClick={() => setuserAvatar(avatar)}
-                src={require(`../../imgs/avatars/${avatar}.png`)}
-                alt=""
-              />
-            </div>
-          ))}
+        <div className="left-back-container">
+          <div className="titleContainer">
+            <p className="tag-title">&#60;</p>
+            <h1 className="welcome-user-title ml-10 mr-10">
+              ¡Bienvenido {nickname}!
+            </h1>
+            <p className="tag-title">&#62;</p>
+          </div>
+          <h2 className="welcome-user-title">Escoge un avatar</h2>
+          <div className="avatarContainer">
+            {avatars.map((avatar) => (
+              <div
+                className={`avatarOption ${
+                  userAvatar === avatar ? "avatarActive" : ""
+                }`}
+                key={avatar}
+              >
+                <img
+                  onClick={() => setuserAvatar(avatar)}
+                  src={require(`../../imgs/avatars/${avatar}.png`)}
+                  alt=""
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="welcome-right-container">
-        <h2 className="welcome-user-title">Puedes crear una sala</h2>
-        <div className="welcomeInnerContainer">
-          <input
-            className="welcomeInput fs-kalam"
-            type="text"
-            placeholder="nombre nueva room"
-            onChange={(e) => setRoomUser(e.target.value.toLowerCase())}
-          />
+        <div className="right-top-back-container">
+          <h2 className="welcome-user-title">Puedes crear una sala</h2>
+          <div className="welcomeInnerContainer">
+            <input
+              className="welcomeInput fs-kalam"
+              type="text"
+              placeholder="nombre nueva sala"
+              onChange={(e) => setRoomUser(e.target.value.toLowerCase())}
+            />
+          </div>
         </div>
         <div className="roomsOuterContainer">
           <h2 className="welcome-user-title">
@@ -76,14 +79,15 @@ export default function WelcomeRoom({ location }) {
             {rooms &&
               rooms.map((room, index) => (
                 <div
+                  key={index}
                   className={`roomItem ${
-                    roomUser === room ? "avatarActive" : ""
+                    roomUser === room ? "roomActive" : ""
                   }`}
                   onClick={() => setRoomUser(room.toLowerCase())}
                 >
                   <div className="roomImg">
                     <img
-                      src={require(`../../imgs/png/${room}.png`)}
+                      src={require(`../../imgs/png/${getRoomImg(room)}.png`)}
                       alt="room avatar"
                     />
                   </div>
@@ -98,19 +102,26 @@ export default function WelcomeRoom({ location }) {
                 </div>
               ))}
           </div>
-          <Link
-          className="linkBtn"
-            onClick={(e) =>
-              !nickname || !roomUser || !userAvatar ? e.preventDefault() : null
-            }
-            to={`/chat?name=${nickname}&room=${roomUser}&avatar=${userAvatar}`}
-          >
-            <button className="button w-70 mt-20" type="submit">
-              Entrar a sala
-            </button>
-          </Link>
         </div>
       </div>
+      <Link
+        className="linkBtn absolute"
+        onClick={(e) =>
+          !nickname || !roomUser || !userAvatar ? e.preventDefault() : null
+        }
+        to={`/chat?name=${nickname}&room=${roomUser}&avatar=${userAvatar}`}
+      >
+        <button className="welcome-btn w-70 mt-20" type="submit">
+          Comienza a chatear!!
+        </button>
+      </Link>
     </div>
   );
+}
+
+const getRoomImg = (room) => {
+  const rooms = ['arcade', 'webdesign', 'coding'];
+  const existingRoom = rooms.includes(room);
+  if(existingRoom) return room;
+  return 'default';
 }

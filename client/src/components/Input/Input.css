@@ -1,6 +1,7 @@
 .form {
     display: flex;
-    border-top: 2px solid #D3D3D3;
+    border-top: 2px solid #462e86;
+    height: 60px;
   }
   
   .input {
@@ -9,8 +10,14 @@
     padding: 5%;
     width: 80%;
     font-size: 1.2em;
+    background-color: #29292e;
+    color: #fff;
   }
-  
+
+  /* .input::placeholder {
+    color: #fff;
+  }
+   */
   input:focus, textarea:focus, select:focus{
     outline: none;
   }
@@ -19,9 +26,12 @@
     color: #fff !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: #ff4f52;
+    background: linear-gradient(#452e86, #462e86);
     padding: 20px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     width: 20%;
+    cursor: pointer;
   }

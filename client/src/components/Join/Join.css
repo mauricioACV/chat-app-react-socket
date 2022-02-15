@@ -19,15 +19,16 @@
 }
 
 .boom-bubble {
-  top: -15%;
-  left: 0;
-  width: 250px;
+  top: 5%;
+  right: 40%;
+  width: 100px;
+  opacity: .7;
 }
 
 .leftContent {
   width: 70%;
   height: 50%;
-  background-color: #2e2e35;
+  background: linear-gradient(#af206ad5, #92034dd5);
   padding: 30px;
   border-radius: 8px;
   display: flex;
@@ -79,21 +80,28 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 25%;
-  width: 550px;
+  width: 70%;
   z-index: 1  ;
+  background: linear-gradient(#2c1d55, #211541);
+  height: 50%;
+  padding: 100px 30px;
+  border-radius: 8px;
 }
 
 .joinInput {
-  text-align: center;
-  border-radius: 0;
-  background: #1a1a1d;
-  padding: 7px 10px;
   width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.219);
+  padding: 3px 7px;
   border: none;
-  border-bottom: 1px solid  rgb(158, 151, 151);
   color: #fff;
-  font-size: 42px;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.joinInput::placeholder {
+  color: white;
 }
 
 .heading{
@@ -107,20 +115,48 @@
 }
 
 .button {
-  color: #fff !important;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 18px;
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
-  background: #ff4f52;
-  padding: 20px;
+  background: transparent;
+  padding: 15px;
   border-radius: 5px;
-  display: inline-block;
-  border: none;
+  border: 2px solid #679768;
   width: 100%;
   cursor: pointer;
+  transition: .2s all;
+  box-shadow: 7px 7px 16px -3px rgba(0,0,0,0.3);
+}
+
+.button:hover {
+  background: #1b3c49;
+}
+
+.button:active {
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);
+  transform: translateY(3px);
 }
 
 .mt-20 {
   margin-top: 20px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+@media (min-width: 990px) and (max-width: 1280px) {
+  .leftContent {
+    width: 90%;
+  }  
+  .joinInnerContainer {
+    width: 90%;
+  }
+  .heading{
+    font-size: 2em;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -133,6 +169,3 @@
   }
 }
 
-button:focus {
-  outline: 0;
-}

@@ -17,9 +17,9 @@ export default function Message({ message: { user, text }, name }) {
     </div>
   ) : (
     <div className="messageContainer justifyStart">
-      <p className="sentText pl-10">{user}:</p>
-      <div className="messageBox backgroundLight">
-        <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p>
+      <p className={`sentText pl-10 ${user==='admin' ? "cursiva": ""}`}>{user}:</p>
+      <div className={`messageBox ${user==='admin' ? "cursiva": "backgroundLight"}`}>
+        <p className={`messageText ${user==='admin' ? "colorGray": "colorDark"}`}>{ReactEmoji.emojify(text)}</p>
       </div>
     </div>
   );

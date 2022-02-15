@@ -1,10 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import io from "socket.io-client";
 import { Link } from "react-router-dom";
 import Cube from "../Cube/Cube";
 import "./Join.css";
 
+let socket;
+
 export default function Join() {
   const [name, setName] = useState("");
+  const [users, setUsers] = useState("");
+  const ENDPOINT = "localhost:5000";
+
+  console.log(users);
+
+  useEffect(() => {
+    socket = io(ENDPOINT);
+  }, []);
+
+  useEffect(() => {
+    socket.emit("getUsers", () => {});
+    socket.on("usersList", ({ users }) => {
+      setUsers(users);
+    });
+  }, []);
+
+  const existingName = () => {
+    const usersNames = users.map(user=>user.name);
+    const validName = usersNames.includes(name);
+    return validName;
+  }
 
   return (
     <div className="joinContainer">
@@ -13,11 +37,6 @@ export default function Join() {
           <img
             src={require("../../imgs/png/chat-bubble-boom.png")}
             className="boom-bubble absolute"
-            alt=""
-          />
-          <img
-            src={require("../../imgs/png/chat-bubble-yes.png")}
-            className="yes-bubble absolute"
             alt=""
           />
           <div className="appTitle">
@@ -42,11 +61,11 @@ export default function Join() {
               onChange={(e) => setName(e.target.value)}
             />
             <Link
-              onClick={(e) => (!name ? e.preventDefault() : null)}
+              onClick={(e) => (existingName() ? e.preventDefault() : null)}
               to={`/welcomeroom?name=${name}`}
             >
               <button className="button mt-20" type="submit">
-                Sign In
+                acceder
               </button>
             </Link>
           </div>

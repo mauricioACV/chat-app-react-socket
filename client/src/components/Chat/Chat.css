@@ -10,26 +10,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #FFFFFF;
     border-radius: 8px;
     height: 70%;
     width: 35%;
     overflow: hidden;
+    border: 3px solid #92034d;
   }
   
-  @media (min-width: 320px) and (max-width: 480px) {
-    .outerContainer {
-      height: 100%;
-    }
-  
+  @media (min-width: 320px) and (max-width: 480px) {  
     .container {
       width: 100%;
-      height: 100%;
+      height: 100vh;
     }
   }
   
   @media (min-width: 480px) and (max-width: 1200px) {
     .container {
-      width: 60%;
+      width: 70%;
     }
   }

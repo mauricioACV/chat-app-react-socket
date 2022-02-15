@@ -7,10 +7,22 @@
 .welcome-left-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  /* align-items: center; */
   width: 50%;
   height: 100vh;
+}
+
+.left-back-container {
+  margin-top: 25px;
+  border-radius: 8px;
+  background: linear-gradient(#af206ad5, #92034dd5);
+  width: 90%;
+  height: 83.6%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .titleContainer {
@@ -23,10 +35,22 @@
 .welcome-right-container {
   display: flex;
   /* align-items: center; */
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   width: 50%;
   height: 100vh;
+}
+
+.right-top-back-container {
+  margin-top: 25px;
+  width: 95%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px;
+  background: linear-gradient(#679768, #304731);
 }
 
 .welcomeInnerContainer {
@@ -37,26 +61,56 @@
 }
 
 .welcomeInput {
-  width: 70%;
+  width: 60%;
   text-align: center;
-  border-radius: 0;
-  background: #1a1a1d;
-  padding: 7px 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.219);
+  padding: 3px 7px;
   border: none;
-  border-bottom: 1px solid  rgb(158, 151, 151);
   color: #fff;
-  font-size: 42px;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.welcomeInput::placeholder {
+  color: white;
+  font-size: 26px;
 }
 
 .roomsContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0px 50px;
+  flex-wrap: wrap;
+}
+
+.roomsOuterContainer {
+  width: 95%;
+  height: 60%;
+  margin-top: 25px;
+  background: linear-gradient(#462e86, #462e86);
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.roomsOuterContainer::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.roomsOuterContainer::-webkit-scrollbar-track {
+  background: #0d0e11e5;
+}
+
+.roomsOuterContainer::-webkit-scrollbar-thumb {
+  background-color: rgb(76, 76, 97);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
 }
 
 .roomItem {
-  width: 70%;
+  min-width: 45%;
+  max-width: 45%;
   position: relative;
   display: flex;
   align-items: center;
@@ -70,7 +124,7 @@
 }
 
 .roomItem:hover {
-  background: #fff;
+  background: rgb(219, 218, 218);
   box-shadow: -15px 30px 50px rgba(0, 0, 0, 0.5);
   transform: scale(1.13);
 }
@@ -85,8 +139,8 @@
 }
 
 .roomImg img {
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   border-radius: 10px;
   margin-right: 10px;
 }
@@ -99,13 +153,14 @@
   color: #fff;
 }
 
-.roomContent h3, .roomContent p {
+.roomContent h3,
+.roomContent p {
   margin: 0;
 }
 
 .roomRank {
   position: absolute;
-  right: -10%;
+  right: -15%;
   color: #03a9f4;
   transition: 0.5s;
   font-size: 2em;
@@ -130,12 +185,12 @@
 
 .avatarOption {
   cursor: pointer;
-  border: 1px solid #da5d5f;
+  border: 1px solid #fff;
   border-radius: 5px;
   margin: 5px;
   width: 70px;
   height: 70px;
-  transition: .3s all;
+  transition: 0.3s all;
 }
 .avatarOption img {
   width: 70px;
@@ -143,16 +198,16 @@
 
 .avatarOption:hover {
   transform: scale(1.6);
-  background: #da5d5f;
+  background: #06e9b0;
 }
 
 .avatarActive {
-    background: #fd5659;
+  background: #8bfafa;
 }
 
-.buttonNewRoom {
-  background: #fd5659;
-
+.roomActive {
+  background: #4b1d4d;
+  border: 1px solid #fff;
 }
 
 .w-70 {
@@ -164,4 +219,32 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  width: 40%;
+  left: 29%;
+  bottom: 3%;
+  box-shadow: 7px 7px 16px -3px rgba(0,0,0,0.3);
+}
+
+.welcome-btn {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  padding: 15px;
+  border-radius: 5px;
+  border: 2px solid #fd5759;
+  width: 100%;
+  cursor: pointer;
+  transition: .2s all;
+}
+
+.welcome-btn:hover {
+  background: #612627;
+}
+
+.welcome-btn:active {
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);
+  transform: translateY(5px);
 }
