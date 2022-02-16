@@ -280,7 +280,7 @@
   .welcome-container {
     flex-direction: column;
     align-items: center;
-    height: auto;
+    height: 100vh;
   }
   .welcome-left-container {
     width: 100%;
@@ -289,6 +289,7 @@
   .welcome-right-container {
     width: 100%;
     align-items: center;
+    height: auto;
   }
   .left-back-container {
     height: 100%;
@@ -298,6 +299,9 @@
   }
   .right-top-back-container {
     margin-top: 10px;
+  }
+  .roomsOuterContainer {
+    height: auto;
   }
   .welcomeInput {
     width: 80%;
@@ -351,10 +355,10 @@
   }
   .linkBtn {
     width: 90%;
-    left: 4.5%;
-    bottom: 4%;
+    position: static;
   }
   .welcome-btn {
     font-size: 16px;
+    margin: 0;
   }
 }

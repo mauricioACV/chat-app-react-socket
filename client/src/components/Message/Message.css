@@ -77,3 +77,9 @@
 .cursiva {
   font-style: italic;
 }
+
+@media (min-width: 300px) and (max-width: 390px) {
+  .messageText {
+    font-size: .8em;
+  }
+}

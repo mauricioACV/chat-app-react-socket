@@ -30,7 +30,7 @@ export default function WelcomeRoom({ location }) {
   }, [location]);
 
   return (
-    <div className="welcome-container relative">
+    <div className="welcome-container">
       <div className="welcome-left-container">
         <div className="left-back-container">
           <div className="titleContainer">
