@@ -96,7 +96,7 @@
 }
 
 .roomsOuterContainer::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 10px; /* width of the entire scrollbar */
 }
 
 .roomsOuterContainer::-webkit-scrollbar-track {
@@ -104,8 +104,8 @@
 }
 
 .roomsOuterContainer::-webkit-scrollbar-thumb {
-  background-color: rgb(76, 76, 97);    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
+  background-color: rgb(76, 76, 97); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
 }
 
 .roomItem {
@@ -160,7 +160,7 @@
 
 .roomRank {
   position: absolute;
-  right: -15%;
+  right: -25%;
   color: #03a9f4;
   transition: 0.5s;
   font-size: 2em;
@@ -168,6 +168,7 @@
 
 .roomItem:hover .roomRank {
   right: 7%;
+  bottom: -10px;
 }
 
 .welcome-user-title {
@@ -222,7 +223,7 @@
   width: 40%;
   left: 29%;
   bottom: 3%;
-  box-shadow: 7px 7px 16px -3px rgba(0,0,0,0.3);
+  box-shadow: 7px 7px 16px -3px rgba(0, 0, 0, 0.3);
 }
 
 .welcome-btn {
@@ -237,7 +238,7 @@
   border: 2px solid #fd5759;
   width: 100%;
   cursor: pointer;
-  transition: .2s all;
+  transition: 0.2s all;
 }
 
 .welcome-btn:hover {
@@ -245,6 +246,115 @@
 }
 
 .welcome-btn:active {
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3);
   transform: translateY(5px);
+}
+
+@media (min-width: 320px) and (max-width: 1400px) {
+  .roomsContainer {
+    padding: 0px 10px;
+  }
+  .roomRank {
+    font-size: 1.2em;
+  }
+  .avatarOption {
+    width: 50px;
+    height: 50px;
+  }
+  .avatarOption img {
+    width: 50px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 1000px) {
+  .roomsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .roomItem {
+    min-width: 80%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 880px) {
+  .welcome-container {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+  .welcome-left-container {
+    width: 100%;
+    height: 35vh;
+  }
+  .welcome-right-container {
+    width: 100%;
+    align-items: center;
+  }
+  .left-back-container {
+    height: 100%;
+    width: 95%;
+    margin-top: 5px;
+    justify-content: flex-start;
+  }
+  .right-top-back-container {
+    margin-top: 10px;
+  }
+  .welcomeInput {
+    width: 80%;
+    margin-bottom: 0px;
+    font-size: 24px;
+  }
+  .welcomeInput::placeholder {
+    font-size: 20px;
+  }
+  .avatarContainer {
+    height: 70%;
+    overflow-y: auto;
+  }
+  .avatarContainer::-webkit-scrollbar {
+    width: 10px; /* width of the entire scrollbar */
+  }
+  .avatarContainer::-webkit-scrollbar-track {
+    background: #0d0e11e5;
+  }
+  .avatarContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(76, 76, 97); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+  }
+  .titleContainer {
+    height: auto;
+  }
+  .welcome-user-title {
+    margin: 5px;
+    font-size: 18px;
+  }
+  .tag-title {
+    font-size: 28px;
+  }
+  .avatarOption:hover {
+    transform: scale(1.2);
+  }
+  .roomsOuterContainer {
+    margin: 0;
+    margin-top: 5px;
+  }
+  .roomImg img {
+    width: 35px;
+    height: 35px;
+  }
+  .roomContent h3,
+  .roomContent p {
+    font-size: 16px;
+  }
+  .roomItem {
+    margin: 5px 0px;
+  }
+  .linkBtn {
+    width: 90%;
+    left: 4.5%;
+    bottom: 4%;
+  }
+  .welcome-btn {
+    font-size: 16px;
+  }
 }
