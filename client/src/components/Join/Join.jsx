@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
 import { Link } from "react-router-dom";
+import { ENDPOINT } from "../../Data/endpoint";
 import Cube from "../Cube/Cube";
 import "./Join.css";
 
@@ -9,7 +10,6 @@ let socket;
 export default function Join() {
   const [name, setName] = useState("");
   const [users, setUsers] = useState("");
-  const ENDPOINT = "localhost:5000";
 
   console.log(users);
 
@@ -53,7 +53,12 @@ export default function Join() {
       </div>
       <div className="rightContainer">
         <div className="joinOuterContainer">
-          <div className="joinInnerContainer">
+          <div className="joinInnerContainer relative">
+          <img
+            src={require("../../imgs/png/chat-bubble-boom.png")}
+            className="boom-bubble2 absolute"
+            alt=""
+          />
             <input
               className="joinInput fs-kalam"
               type="text"
@@ -65,7 +70,7 @@ export default function Join() {
               to={`/welcomeroom?name=${name}`}
             >
               <button className="button mt-20" type="submit">
-                acceder
+                ✨ingresar✨
               </button>
             </Link>
           </div>

@@ -2,13 +2,22 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import { addUser, removeUser, getUser, getUsers, getUsersInRoom } from "./users.js";
 import { addRoom, getRooms } from "./rooms.js";
+import cors from 'cors';
+import express from 'express';
+import { router } from "./router.js";
 
-const httpServer = createServer();
+
+const app = express();
+
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
   },
 });
+
+app.use(cors());
+app.use(router);
 
 const PORT = process.env.PORT || 5000;
 
@@ -32,7 +41,6 @@ io.on("connection", (socket) => {
 
   socket.on("getRooms", () => {
     const rooms = getRooms();
-    console.log(rooms)
     socket.emit("roomsList", {
       rooms
     });
@@ -64,7 +72,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("sendMessage", (message, callback) => {
-    console.log(message);
     const user = getUser(socket.id);
     io.to(user.room).emit("message", { user: user.name, text: message });
     //en caso de requerir hacer algo despues de enviar el mensaje el front

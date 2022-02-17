@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import io from "socket.io-client";
 import queryString from "query-string";
+import {ENDPOINT} from '../../Data/endpoint';
 import { avatars } from "../../Data/avatars";
 import "./WelcomeRoom.css";
 
@@ -12,9 +13,6 @@ export default function WelcomeRoom({ location }) {
   const [userAvatar, setuserAvatar] = useState(null);
   const [roomUser, setRoomUser] = useState("");
   const [rooms, setRooms] = useState(null);
-  const ENDPOINT = "localhost:5000";
-
-  console.log(rooms);
 
   useEffect(() => {
     socket = io(ENDPOINT);

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
+import { ENDPOINT } from "../../Data/endpoint";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import Messages from "../Messages/Messages";
@@ -14,7 +15,6 @@ export default function Chat({ location }) {
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState([]);
-  const ENDPOINT = "localhost:5000";
 
   useEffect(() => {
     const { name, room, avatar } = queryString.parse(location.search);
