@@ -66,7 +66,7 @@ export default function Join() {
               onChange={(e) => setName(e.target.value)}
             />
             <Link
-              onClick={(e) => (existingName() ? e.preventDefault() : null)}
+              onClick={(e) => (existingName() || !name ? e.preventDefault() : null)}
               to={`/welcomeroom?name=${name}`}
             >
               <button className="button mt-20" type="submit">

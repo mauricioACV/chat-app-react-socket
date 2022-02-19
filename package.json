@@ -1,0 +1,6 @@
+{
+  "homepage": "https://mauricioacv.github.io/chat-app-react-socket/",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}

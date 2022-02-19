@@ -1,7 +1,7 @@
 .welcome-container {
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .welcome-left-container {
@@ -235,14 +235,15 @@
   background: transparent;
   padding: 15px;
   border-radius: 5px;
-  border: 2px solid #fd5759;
+  background: #d1191c;
+  border: none;
   width: 100%;
   cursor: pointer;
   transition: 0.2s all;
 }
 
 .welcome-btn:hover {
-  background: #612627;
+  background: #ce3234;
 }
 
 .welcome-btn:active {
@@ -280,11 +281,11 @@
   .welcome-container {
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
   }
   .welcome-left-container {
     width: 100%;
-    height: 35vh;
+    height: 220px;
   }
   .welcome-right-container {
     width: 100%;
@@ -301,7 +302,7 @@
     margin-top: 10px;
   }
   .roomsOuterContainer {
-    height: auto;
+    height: 100%;
   }
   .welcomeInput {
     width: 80%;
@@ -355,10 +356,9 @@
     height: 50px;
   }
   .linkBtn {
-    width: 90%;
-    left: 5%;
-    bottom: 2%;
-    /* position: static; */
+    width: 95%;
+    position: static;
+    padding: 10px;
   }
   .welcome-btn {
     font-size: 16px;
