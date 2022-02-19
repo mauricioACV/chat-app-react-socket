@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/chat-app-react-socket/static/css/main.0dfd2bb5.css",
+    "main.css": "/chat-app-react-socket/static/css/main.3ee0eded.css",
     "main.js": "/chat-app-react-socket/static/js/main.56542a6b.js",
     "static/media/chat-bubbles.png": "/chat-app-react-socket/static/media/chat-bubbles.0cc6db5542b10e18ea86.png",
     "static/media/SeaMonster.png": "/chat-app-react-socket/static/media/SeaMonster.560fa15986a667a9e970.png",
@@ -42,11 +42,11 @@
     "index.html": "/chat-app-react-socket/index.html",
     "static/media/logo-socket.svg": "/chat-app-react-socket/static/media/logo-socket.15f2035c592a4a1addf7a00aa350be4f.svg",
     "static/media/users.svg": "/chat-app-react-socket/static/media/users.a3f5b80e8587b1c15e2c89b43c3bf6d2.svg",
-    "main.0dfd2bb5.css.map": "/chat-app-react-socket/static/css/main.0dfd2bb5.css.map",
+    "main.3ee0eded.css.map": "/chat-app-react-socket/static/css/main.3ee0eded.css.map",
     "main.56542a6b.js.map": "/chat-app-react-socket/static/js/main.56542a6b.js.map"
   },
   "entrypoints": [
-    "static/css/main.0dfd2bb5.css",
+    "static/css/main.3ee0eded.css",
     "static/js/main.56542a6b.js"
   ]
 }
