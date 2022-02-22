@@ -183,7 +183,6 @@ button:focus {
   .leftContainer {
     margin: 0px;
     width: 70%;
-    min-height: 35vh;
   }
   .rightContainer {
     width: 70%;

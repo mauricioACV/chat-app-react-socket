@@ -3,7 +3,7 @@
   width: 40px;
   height: 40px;
   transform-style: preserve-3d;
-  animation: animate 6s linear infinite;
+  animation: animate 8s linear infinite;
   transition: 5s ease-in-out all;
 }
 
@@ -21,10 +21,25 @@
   0% {
     transform: rotateX(0deg) rotateY(0deg);
   }
+  10% {
+    transform: rotateX(0deg) rotateY(90deg);
+  }
+  20% {
+    transform: rotateX(0deg) rotateY(90deg);
+  }
+  30% {
+    transform: rotateX(0deg) rotateY(180deg);
+  }
   40% {
-    transform: rotateX(0deg) rotateY(360deg);
+    transform: rotateX(0deg) rotateY(180deg);
+  }
+  50% {
+    transform: rotateX(0deg) rotateY(270deg);
   }
   60% {
+    transform: rotateX(0deg) rotateY(270deg);
+  }
+  70% {
     transform: rotateX(-90deg) rotateY(360deg);
   }
   80% {
