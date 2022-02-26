@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import queryString from "query-string";
 import {ENDPOINT} from '../../Data/endpoint';
 import { avatars } from "../../Data/avatars";
-import "./WelcomeRoom.css";
+import "./WelcomeRoom-dist.css";
 
 let socket;
 
@@ -13,6 +13,7 @@ export default function WelcomeRoom({ location }) {
   const [userAvatar, setuserAvatar] = useState(null);
   const [roomUser, setRoomUser] = useState("");
   const [rooms, setRooms] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     socket = io(ENDPOINT);
@@ -20,15 +21,21 @@ export default function WelcomeRoom({ location }) {
     socket.on("roomsList", ({ rooms }) => {
       setRooms(rooms);
     });
-  }, [ENDPOINT]);
+  }, []);
 
   useEffect(() => {
     const { name } = queryString.parse(location.search);
     setNickname(name);
   }, [location]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowAlert(true);
+  }
+
   return (
     <div className="welcome-container">
+      {showAlert && <AlertMessage setShowAlert={setShowAlert} userAvatar={userAvatar} roomUser={roomUser}/>}
       <div className="welcome-left-container">
         <div className="left-back-container">
           <div className="titleContainer">
@@ -105,7 +112,7 @@ export default function WelcomeRoom({ location }) {
       <Link
         className="linkBtn absolute"
         onClick={(e) =>
-          !nickname || !roomUser || !userAvatar ? e.preventDefault() : null
+          !nickname || !roomUser || !userAvatar ? handleSubmit(e) : null
         }
         to={`/chat?name=${nickname}&room=${roomUser}&avatar=${userAvatar}`}
       >
@@ -113,6 +120,20 @@ export default function WelcomeRoom({ location }) {
           Comienza a chatear!!
         </button>
       </Link>
+    </div>
+  );
+}
+
+function AlertMessage({setShowAlert, userAvatar, roomUser}) {
+  return (
+    <div className="alert_box">
+      <p className="alert_box_text">
+        Seleccione {userAvatar ? "" : "Avatar"}{" "}
+        {userAvatar || roomUser ? "" : "&"} {roomUser ? "" : "Room"}
+      </p>
+      <button className="button_alert_box" onClick={() => setShowAlert(false)}>
+        OK
+      </button>
     </div>
   );
 }

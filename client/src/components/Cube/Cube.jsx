@@ -1,4 +1,4 @@
-import './Cube.css';
+import './Cube-dist.css';
 
 export default function Cube() {
   return (

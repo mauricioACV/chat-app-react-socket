@@ -7,7 +7,6 @@
 .welcome-left-container {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   width: 50%;
   height: 100vh;
 }
@@ -251,6 +250,41 @@
   transform: translateY(5px);
 }
 
+.alert_box {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background-color: #d1191cc9;
+  top: 0%;
+  left: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.alert_box_text {
+  color: #fff;
+  font-size: 20px;
+}
+
+.button_alert_box {
+  background-color: rgb(7, 49, 139);
+  box-shadow: 7px 7px 16px -3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  width: 200px;
+  height: 40px;
+  border-radius: 25px;
+}
+
+.button_alert_box:active {
+  transform: translateY(2px);
+}
+
 @media (min-width: 320px) and (max-width: 1400px) {
   .roomsContainer {
     padding: 0px 10px;
@@ -290,7 +324,7 @@
   .welcome-right-container {
     width: 100%;
     align-items: center;
-    height: 50vh;
+    height: 45vh;
   }
   .left-back-container {
     height: 100%;
@@ -307,6 +341,7 @@
   }
   .welcomeInput {
     width: 80%;
+    height: 28px;
     margin-bottom: 0px;
     font-size: 24px;
   }

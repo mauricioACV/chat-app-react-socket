@@ -121,6 +121,14 @@
   color: #fff;
 }
 
+.alert-nickname {
+  color: red;
+}
+
+.d-none {
+  display: none;
+}
+
 .button {
   font-family: "Lexend Deca", sans-serif;
   font-size: 18px;
@@ -243,6 +251,9 @@ button:focus {
   }
   .tag-title {
     margin: 0;
+  }
+  .alert-nickname {
+    color: greenyellow;
   }
   .button {
     background: #511e8b;

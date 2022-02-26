@@ -1,5 +1,5 @@
 import ReactEmoji from 'react-emoji';
-import "./Message.css";
+import "./Message-dist.css";
 
 export default function Message({ message: { user, text }, name }) {
   let isSentByCurrentUser = false;

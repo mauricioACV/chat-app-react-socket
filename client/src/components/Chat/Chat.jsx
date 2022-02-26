@@ -5,7 +5,7 @@ import { ENDPOINT } from "../../Data/endpoint";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import Messages from "../Messages/Messages";
-import "./Chat.css";
+import "./Chat-dist.css";
 
 let socket;
 
@@ -19,22 +19,25 @@ export default function Chat({ location }) {
   useEffect(() => {
     const { name, room, avatar } = queryString.parse(location.search);
     socket = io(ENDPOINT);
+
+    
     setRoom(room);
     setName(name);
-
+    
     socket.emit("join", { name, room, avatar }, (error) => {
       if (error) {
-        console.log("error nombre usuario");
+        window.alert("nombre usuario ya esta en uso, cierre la ventana y vuelva a intentarlo :(");
       }
     });
-
+    
+    socket.emit("updateUsersList", () => {});
     socket.emit("newRoom", { room }, () => {});
 
     return () => {
       socket.emit("disconnect");
       socket.off();
     };
-  }, [ENDPOINT, location.search]);
+  }, [location.search]);
 
   useEffect(() => {
     socket.on("message", (message) => {

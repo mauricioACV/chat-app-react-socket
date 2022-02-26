@@ -1,4 +1,4 @@
-import "./InfoBar.css";
+import "./InfoBar-dist.css";
 
 export default function InfoBar({ room, users }) {
   return (

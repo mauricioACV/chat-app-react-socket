@@ -1,4 +1,4 @@
-import "./Input.css";
+import "./Input-dist.css";
 
 export default function Input({ message, setMessage, sendMessage }) {
   return (
